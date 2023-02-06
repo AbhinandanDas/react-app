@@ -1,5 +1,4 @@
 /* HOME PAGE */
-
 .App {
   width: 100vw;
   height: auto;
@@ -10,8 +9,8 @@
 }
 
 body {
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
 }
 
 .post {
@@ -102,5 +101,62 @@ body {
 .formContainer button:hover {
   cursor: pointer;
   background-color: dodgerblue;
+}
+
+span {
+  color: red;
+}
+
+/* NAV-BAR */
+
+.navbar {
+  width: 100%;
+  height: 70px;
+  background-color: dodgerblue;
+  display: flex;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: white;
+}
+
+/* INDIVIDUAL POSTS */
+
+.postPage {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+}
+
+.leftSide {
+  flex: 50%;
+  height: calc(100vh - 70px);
+  display: grid;
+  place-items: center;
+}
+
+.rightSide {
+  flex: 50%;
+  height: calc(100vh - 70px);
+  display: grid;
+  place-items: center;
+}
+
+#individual  {
+  height: 500px;
+  width: 600px;
+}
+
+#individual .title, #individual .username {
+  font-size: 30px;
+}
+
+#individual .body {
+  font-size: 25px;
 }
 
