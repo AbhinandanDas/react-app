@@ -147,6 +147,68 @@ span {
   place-items: center;
 }
 
+.rightSide .addCommentContainer {
+  flex: 20%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  margin-top: 25px;
+}
+
+.rightSide input,button {
+  width: 200px;
+  height: 50px;
+  border-radius: 8px;
+  border: none;
+}
+
+.rightSide button {
+  background: dodgerblue;
+  color: white;
+}
+
+.rightSide input {
+  border: 2px solid dodgerblue;
+}
+
+.rightSide .listOfComments {
+  flex:80%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.listOfComments .comment {
+  margin: 10px auto;
+  width: 700px;
+  border-left: solid 2px #ccc;
+  padding: 0px 20px 0px 20px;
+  background-color: #fff;
+  font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.7;
+  position: relative;
+}
+.listOfComments .comment {
+  background-color: #fff;
+  padding: 10px;
+  font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border: solid 1px #ccc;
+  line-height: 1.7;
+  position: relative;
+}
+
+.listOfComments .comment::after {
+  content: '';
+  position: absolute;
+  border: solid 8px;
+  border-color: transparent #ccc transparent transparent;
+  top: 10px;
+  left: -17px;
+}
+
 #individual  {
   height: 500px;
   width: 600px;

@@ -18,7 +18,7 @@ router.get('/byId/:id',async (req,res) => {
 router.post("/",async(req,res) => {
     const post = req.body;
     await Posts.create(post); // Posts is the model defined by us.
-    res.json(post);
+    res.json(post); // confirmation response.
 });
 
 module.exports = router;

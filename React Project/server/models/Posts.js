@@ -13,5 +13,15 @@ module.exports = (sequelize, DataTypes ) => { // ORM tool used is sequelize.
            allowNull: false,
        },
     });
+    // Each post needs to be associated to the comments table. One post might have multiple comments hence
+    // a one to many relationship.
+
+    Posts.associate = (models) => {
+        Posts.hasMany(models.Comments,{
+            onDelete: "cascade", // cascade will ensure that whenever a post is deleted then
+                                // all the comments associated with the post are also deleted.
+        });
+    };
+
     return Posts;
 }
