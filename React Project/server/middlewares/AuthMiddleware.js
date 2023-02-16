@@ -5,14 +5,13 @@ const { verify } = require("jsonwebtoken")
 
 const validateToken = (req,res,next) => { // next is a function that is called if you want the request to move forward.
     const accessToken = req.header("accessToken");
-
     if(!accessToken){ // if user has not even logged in but trying to comment.
         return res.json({ error: "User not logged in!" });
     }
 
     try {
-        const validToken = verify(accessToken,"importantsecret"); // if user has logged in, check the token whether it is the same as the one that gets created or not.
-        
+        const validToken = verify(accessToken,"important"); // if user has logged in, check the token whether it is the same as the one that gets created or not.
+        req.user = validToken;
         if(validToken) {
             return next(); // if the token is valid then continue to the API endpoint.
         }

@@ -4,6 +4,10 @@ module.exports = (sequelize, DataTypes ) => { // ORM tool used is sequelize.
            type: DataTypes.STRING,
            allowNull: false,
        },
+       username: {
+        type: DataTypes.STRING,
+        allowNull: false,
+       }
     });
     return Comments;
 }

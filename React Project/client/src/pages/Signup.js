@@ -17,7 +17,7 @@ function Signup() {
 
     const onSubmit = (data) => {
         axios.post("http://localhost:3001/auth",data).then(() => { //  API request is sent to this URL.
-            console.log(data)
+            console.log("User Created")
         })
     }
 

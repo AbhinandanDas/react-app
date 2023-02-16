@@ -17,10 +17,15 @@ module.exports = (sequelize, DataTypes ) => { // ORM tool used is sequelize.
     // a one to many relationship.
 
     Posts.associate = (models) => {
+        Posts.hasMany(models.Likes,{
+            onDelete: "cascade",
+        });
+
         Posts.hasMany(models.Comments,{
             onDelete: "cascade", // cascade will ensure that whenever a post is deleted then
                                 // all the comments associated with the post are also deleted.
-        });
+        })
+
     };
 
     return Posts;

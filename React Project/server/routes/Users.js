@@ -4,6 +4,7 @@ const {Users}  = require("../models");
 const bcrypt  = require("bcrypt");
 
 const { sign }  = require("jsonwebtoken");
+const { validateToken } = require("../middlewares/AuthMiddleware");
 
 router.post("/", async (req,res) => {
     const { username,password } = req.body; // the body object is destructured so that username and password can be
@@ -34,11 +35,26 @@ router.post("/login", async (req,res) => { // user enter their credentials(usern
             else{    
             const accessToken = sign(
                 { username: user.username, id: user.id },
-                "importantsecret",
+                "important",
                 );     // payload is the data that is being secured.
-                return res.json(accessToken)
+                return res.json({token: accessToken, username: username, id: user.id})
             }
         })
 })
 
+router.get("/auth",validateToken,(req,res) => {
+    res.json(req.user)
+})
+
+// API endpoint to fetch primary user information.
+
+router.get("/basicinfo/:id", async (req,res) => {
+    const id = req.params.id
+    const basicInfo = await Users.findByPk(id, {
+        attributes: {
+            exclude : ["password"] // using attribute "exclude" to get query exclusive information
+        }
+    })
+    res.json(basicInfo)
+})
 module.exports = router;
